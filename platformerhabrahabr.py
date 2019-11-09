@@ -16,7 +16,7 @@ WIN_HEIGHT = 500  # Высота
 DISPLAY = (WIN_WIDTH, WIN_HEIGHT) # Группируем ширину и высоту в одну переменную
 BACKGROUND_COLOR = "#004400"
 
-REDIS_HOST = 'localhost'
+REDIS_HOST = '192.168.43.36'
 REDIS_PORT = '6379'
 redis_conn = redis.Redis(host=REDIS_HOST, port=REDIS_PORT)
 
