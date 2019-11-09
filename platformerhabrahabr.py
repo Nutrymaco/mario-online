@@ -152,7 +152,7 @@ def main():
         camera.update(hero) # центризируем камеру относительно персонажа
         hero.update(left, right, up, platforms, boost) # передвижение
 
-        if time() - start_time > 0.05:
+        if time() - start_time > 0.2:
             other_positions = get_other_positions(my_name)
 
             set_my_position(my_name, hero.rect.x, hero.rect.y)
