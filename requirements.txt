@@ -81,7 +81,7 @@ python-slugify==1.2.6
 python-u2flib-server==4.0.1
 pytz==2019.1
 PyWavelets==1.0.1
-PyYAML==3.13
+PyYAML==5.1
 pyzmq==18.0.1
 qrcode==5.3
 qtconsole==4.4.3
