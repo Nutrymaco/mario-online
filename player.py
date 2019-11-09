@@ -77,10 +77,9 @@ class Player(sprite.Sprite):
 
         if up:
             if self.onGround: # прыгаем, только когда можем оттолкнуться от земли
-
                 self.yvel = -JUMP_POWER
                 self.count_jumps = 1
-            elif self.count_jumps < 2 and self.yvel >= 4.2:
+            elif self.count_jumps < 2 and self.yvel >= 0.35:
                 self.yvel = -JUMP_POWER
                 self.count_jumps += 1
 

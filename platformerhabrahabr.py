@@ -11,7 +11,7 @@ import redis
 from time import time
 
 #Объявляем переменные
-WIN_WIDTH = 800  #Ширина создаваемого окна
+WIN_WIDTH = 900  #Ширина создаваемого окна
 WIN_HEIGHT = 500  # Высота
 DISPLAY = (WIN_WIDTH, WIN_HEIGHT) # Группируем ширину и высоту в одну переменную
 BACKGROUND_COLOR = "#004400"
@@ -53,8 +53,8 @@ def get_other_positions(name):
     for key in keys:
         key = str(key)[9:-1]
         if key != name:
-            position_dict[key] = (int(float(str(redis_conn.hget('player_' + key, 'x'))[2:-1])),
-                                  int(float(str(redis_conn.hget('player_' + key, 'y'))[2:-1])))
+            position_dict[key] = (int(str(redis_conn.hget('player_' + key, 'x'))[2:-1]),
+                                  int(str(redis_conn.hget('player_' + key, 'y'))[2:-1]))
     return position_dict
 
 
@@ -71,12 +71,12 @@ def main():
     bg = Surface((WIN_WIDTH, WIN_HEIGHT)) # Создание видимой поверхности
                                          # будем использовать как фон
     bg.fill(Color(BACKGROUND_COLOR))     # Заливаем поверхность сплошным цветом
-    y = 1590
-    hero = Player(30, 1500, name=my_name)  # создаем героя по (x,y) координатам
+    y = 4590
+    hero = Player(30, 3600, name=my_name)  # создаем героя по (x,y) координатам
 
     level = redis_conn.get('level')
     if not level:
-        level = get_random_level(y // 32, width=30)
+        level = get_random_level(y // 32, width=40)
         redis_conn.set('level', str(level))
     else:
 
