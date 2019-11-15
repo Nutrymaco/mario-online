@@ -16,7 +16,7 @@ WIN_HEIGHT = 500  # Высота
 DISPLAY = (WIN_WIDTH, WIN_HEIGHT) # Группируем ширину и высоту в одну переменную
 BACKGROUND_COLOR = "#004400"
 
-REDIS_HOST = '192.168.43.36'
+REDIS_HOST = 'localhost'
 REDIS_PORT = '6379'
 redis_conn = redis.Redis(host=REDIS_HOST, port=REDIS_PORT)
 
@@ -78,10 +78,9 @@ def main():
     if not level:
         level = get_random_level(y // 32, width=40)
         redis_conn.set('level', str(level))
-    else:
 
-        level = str(level)
-        level = [lev for lev in level[3:-3].split(', ')]
+    else:
+        level = [lev for lev in str(level)[3:-3].split(', ')]
 
 
     set_my_position(my_name, hero.rect.x, hero.rect.y)
