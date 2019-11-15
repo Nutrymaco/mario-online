@@ -20,7 +20,6 @@ REDIS_HOST = 'localhost'
 REDIS_PORT = '6379'
 redis_conn = redis.Redis(host=REDIS_HOST, port=REDIS_PORT)
 
-
 class Camera(object):
     def __init__(self, camera_func, width, height):
         self.camera_func = camera_func
@@ -33,7 +32,7 @@ class Camera(object):
 
         self.state = self.camera_func(self.state, target.rect)
 
-        
+    
 def camera_configure(camera, target_rect):
     l, t, _, _ = target_rect
     _, _, w, h = camera
